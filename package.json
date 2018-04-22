@@ -25,7 +25,8 @@
     "docker:reset": "npm run docker:down && npm run docker:up",
     "docker:up": "docker-compose -f ./docker/dc.selenium.yml up -d",
     "docker:down": "docker-compose -f ./docker/dc.selenium.yml down",
-    "locales:extract": "i18next-extract-gettext --files='./+(app)/**/*.+(js|json)' --output=app/common/locales/source.pot"
+    "locales:extract": "i18next-extract-gettext --files='./+(app)/**/*.+(js|json)' --output=app/common/locales/source.pot",
+    "storybook": "start-storybook -p 9001 -c .storybook"
   },
   "lint-staged": {
     "*.js": "eslint app",

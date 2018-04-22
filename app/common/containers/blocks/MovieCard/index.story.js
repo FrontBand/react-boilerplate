@@ -1,9 +1,18 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
 
-import Component from './index';
+import MovieCard from './index';
 
-storiesOf('components/_Component_', module)
+storiesOf('blocks/MovieCard', module)
   .add('General', () => (
-    <Component>Sample component</Component>
+    <MovieCard
+      movie={{
+        id: 'id',
+        title: 'The Shawshank Redemption',
+        year: 1994,
+        poster: 'https://ia.media-imdb.com/images/M/MV5BMDFkYTc0MGEtZmNhMC00ZDIzLWFmNTEtODM1ZmRlYWMwMWFmXkEyXkFqcGdeQXVyMTMxODk2OTU@._V1_.jpg',
+        description: 'Two imprisoned men bond over a number of years, finding solace and eventual redemption through acts of common decency.',
+        director: 'Frank Darabont',
+      }}
+    />
   ));

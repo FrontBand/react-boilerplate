@@ -6,5 +6,5 @@ import TextInput from './index';
 
 storiesOf('components/TextInput', module)
   .add('General', () => (
-    <TextInput input={{ value: 'input value', onChange: action('change') }} />
+    <TextInput value="input value" onChange={action('change')} />
   ));
