@@ -2,6 +2,8 @@ import React from 'react';
 import { compose } from 'recompose';
 import withStyles from 'withStyles';
 import { reduxForm, Field } from 'redux-form';
+import { translate } from 'react-i18next';
+
 import Form, { FormRow } from '@/components/Form';
 import FormField from '@/components/FormField';
 import TextInput from '@/components/TextInput';
@@ -12,30 +14,31 @@ import { reduxFormValidate } from 'react-nebo15-validate';
 
 import styles from './styles.scss';
 
-const MovieForm = ({ handleSubmit }) => (
+const MovieForm = ({ handleSubmit, t }) => (
   <Form onSubmit={handleSubmit}>
-    <FormRow label="Title">
+    <FormRow label={t('Title')}>
       <Field component={FormField} inputComponent={TextInput} name="title" />
     </FormRow>
-    <FormRow label="Poster url">
+    <FormRow label={t('Poster url')}>
       <Field component={FormField} inputComponent={TextInput} name="poster" />
     </FormRow>
-    <FormRow label="Description">
+    <FormRow label={t('Description')}>
       <Field component={FormField} inputComponent={TextareaInput} name="description" />
     </FormRow>
-    <FormRow label="Year">
+    <FormRow label={t('Year')}>
       <Field component={FormField} inputComponent={TextInput} name="year" type="number" />
     </FormRow>
-    <FormRow label="Director">
+    <FormRow label={t('Director')}>
       <Field component={FormField} inputComponent={TextInput} name="director" />
     </FormRow>
     <FormRow>
-      <Button type="submit">Create</Button>
+      <Button type="submit">{t('Create')}</Button>
     </FormRow>
   </Form>
 );
 
 export default compose(
+  translate(),
   withStyles(styles),
   reduxForm({
     form: 'movie-form',

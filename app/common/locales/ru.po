@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2017-04-11 23:27+0200\n"
-"PO-Revision-Date: 2017-04-11 23:27+0200\n"
+"POT-Creation-Date: 2018-04-23 01:52+0300\n"
+"PO-Revision-Date: 2018-04-23 01:53+0300\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: ru\n"
@@ -11,4 +11,37 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
 "%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
-"X-Generator: Poedit 1.8.1\n"
+"X-Generator: Poedit 1.8.11\n"
+
+msgid "Required field"
+msgstr "Обязательное поле"
+
+msgid "Title"
+msgstr "Название"
+
+msgid "Poster url"
+msgstr "URL постера"
+
+msgid "Description"
+msgstr "Описание"
+
+msgid "Year"
+msgstr "Год"
+
+msgid "Director"
+msgstr "Режиссер"
+
+msgid "Create"
+msgstr "Создать"
+
+msgid "Create new movie"
+msgstr "Добавить новый фильм"
+
+msgid "Back to the list of movies"
+msgstr "Вернуться к списку фильмов"
+
+msgid "Add new movie"
+msgstr "Добавить новый фильм"
+
+msgid "Page Not Found"
+msgstr "Страница не найдена"

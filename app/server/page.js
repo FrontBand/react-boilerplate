@@ -28,6 +28,7 @@ export default () => (req, res, next) => {
       html: null,
       reduxState: null,
       inlineCss: null,
+      redialProps: null,
       helmet: Helmet.rewind(),
     });
   }

@@ -3,6 +3,7 @@ import { compose } from 'recompose';
 import { connect } from 'react-redux';
 import { withRouter, Link } from 'react-router';
 import { provideHooks } from 'redial';
+import { translate } from 'react-i18next';
 import { fetchMovie } from '@/redux/data/movies';
 import { getMovie } from '@/reducers';
 
@@ -11,7 +12,7 @@ import Poster from '@/components/Poster';
 import withStyles from 'withStyles';
 import styles from './styles.scss';
 
-const MoviesDetailsPage = ({ movie = {} }) => (
+const MoviesDetailsPage = ({ movie = {}, t }) => (
   <div className={styles.root}>
     <div className={styles.poster}>
       <Poster src={movie.poster} title={movie.title} />
@@ -25,7 +26,7 @@ const MoviesDetailsPage = ({ movie = {} }) => (
         <p>{ movie.description }</p>
         <p>{ movie.director }</p>
         <p>
-          <Link to="/movies">Back to the list of movies</Link>
+          <Link to="/movies">{t('Back to the list of movies')}</Link>
         </p>
       </div>
     </div>
@@ -34,6 +35,7 @@ const MoviesDetailsPage = ({ movie = {} }) => (
 
 export default compose(
   withStyles(styles),
+  translate(),
   withRouter,
   provideHooks({
     fetch: ({ dispatch, params, setProps }) => dispatch(fetchMovie(params.id)).then((response) => {
