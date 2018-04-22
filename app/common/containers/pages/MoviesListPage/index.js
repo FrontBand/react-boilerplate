@@ -1,6 +1,7 @@
 import React from 'react';
-import { compose } from 'recompose';
+import { compose, withHandlers } from 'recompose';
 import { connect } from 'react-redux';
+import { withRouter } from 'react-router';
 import { provideHooks } from 'redial';
 import { fetchMovies } from '@/redux/data/movies';
 import { getMovies } from '@/reducers';
@@ -9,11 +10,11 @@ import MovieCard from '@/containers/blocks/MovieCard';
 import withStyles from 'withStyles';
 import styles from './styles.scss';
 
-const MoviesListPage = ({ movies = [] }) => (
+const MoviesListPage = ({ movies = [], onMovieCardClick }) => (
   <div className={styles.root}>
     { movies.map(movie => (
       <div className={styles.item} key={movie.id}>
-        <MovieCard movie={movie} />
+        <MovieCard movie={movie} onClick={() => onMovieCardClick(movie)} />
       </div>
     ))}
   </div>
@@ -21,6 +22,7 @@ const MoviesListPage = ({ movies = [] }) => (
 
 export default compose(
   withStyles(styles),
+  withRouter,
   provideHooks({
     fetch: ({ dispatch, setProps }) => dispatch(fetchMovies()).then((response) => {
       setProps({ moviesIds: response.payload.result });
@@ -28,5 +30,10 @@ export default compose(
   }),
   connect((state, ownProps) => ({
     movies: getMovies(state, ownProps.moviesIds || []),
-  }))
+  })),
+  withHandlers({
+    onMovieCardClick: ({ router }) => (movie) => {
+      router.push(`/movies/${movie.id}`);
+    },
+  })
 )(MoviesListPage);
