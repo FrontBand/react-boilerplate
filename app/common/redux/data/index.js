@@ -1,7 +1,7 @@
 import { combineReducers } from 'redux';
 
-import templates from './templates';
+import movies from './movies';
 
 export default combineReducers({
-  templates,
+  movies,
 });

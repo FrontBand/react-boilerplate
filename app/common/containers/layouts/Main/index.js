@@ -5,7 +5,6 @@ import styles from './styles.scss';
 
 const Main = ({ children }) => (
   <div className={styles.main}>
-    Main layout
     { children }
   </div>
 );

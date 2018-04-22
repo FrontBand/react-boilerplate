@@ -1,20 +1,32 @@
 import React from 'react';
 import { compose } from 'recompose';
-// import { connect } from 'react-redux';
-// import { provideHooks } from 'redial';
+import { connect } from 'react-redux';
+import { provideHooks } from 'redial';
+import { fetchMovies } from '@/redux/data/movies';
+import { getMovies } from '@/reducers';
+
+import MovieCard from '@/containers/blocks/MovieCard';
+import withStyles from 'withStyles';
+import styles from './styles.scss';
 
 const MoviesListPage = ({ movies = [] }) => (
-  <ul>
-    { movies.map(movie => <li key={movie.id}>{ movie.title }</li>)}
-  </ul>
+  <div className={styles.root}>
+    { movies.map(movie => (
+      <div className={styles.item} key={movie.id}>
+        <MovieCard movie={movie} />
+      </div>
+    ))}
+  </div>
 );
 
 export default compose(
-  // provideHooks({
-  //   fetch: ({ dispatch }) => dispatch(fetchTemplates()),
-  // }),
-  // connect(state => ({
-  //   ...state.pages.TemplateListPage,
-  //   templates: getTemplates(state, state.pages.TemplateListPage.templates),
-  // }))
+  withStyles(styles),
+  provideHooks({
+    fetch: ({ dispatch, setProps }) => dispatch(fetchMovies()).then((response) => {
+      setProps({ moviesIds: response.payload.result });
+    }),
+  }),
+  connect((state, ownProps) => ({
+    movies: getMovies(state, ownProps.moviesIds || []),
+  }))
 )(MoviesListPage);
