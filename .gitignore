@@ -1,0 +1,17 @@
+node_modules
+.tmp
+.idea
+.DS_Store
+*.log
+static
+.env
+coverage
+lcov.info
+tests_output
+!Icon
+!icon
+browserstack.err
+*.mo
+public/sitemap*.xml
+logs
+stats.json

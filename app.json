@@ -1,0 +1,34 @@
+{
+  "name": "react-boilerplate",
+  "scripts": {
+  },
+  "env": {
+    "PREBUILD": {
+      "description": "RUN postinstall script. MUST be `true`",
+      "required": true,
+      "value": "true"
+    },
+    "SITEMAP_HOSTNAME": {
+      "description": "SITEMAP_HOSTNAME will be used as hostname in sitemap URLs",
+      "required": false,
+      "value": ""
+    },
+    "LANG_COOKIE_NAME": {
+      "description": "Name of the cookie, where storing language variable",
+      "value": "lang"
+    }
+  },
+  "formation": {
+    "web": {
+      "quantity": 1
+    }
+  },
+  "addons": [
+
+  ],
+  "buildpacks": [
+    {
+      "url": "heroku/nodejs"
+    }
+  ]
+}

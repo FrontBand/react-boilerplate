@@ -1,0 +1,6 @@
+version: '2'
+services:
+  selenium:
+    container_name: selenium
+    image: selenium/standalone-chrome
+    network_mode: host

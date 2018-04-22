@@ -1,0 +1,29 @@
+{
+  "presets": [
+    ["es2015", { "modules": false }],
+    "react",
+    "stage-0",
+  ],
+  "plugins": [
+    "transform-runtime",
+    "transform-decorators-legacy",
+    [
+      "module-resolver",
+      {
+        "alias": {
+          "tests": "./tests",
+          "withStyles": "isomorphic-style-loader/lib/withStyles",
+          "public": "./public",
+          "@": "./app/common"
+        }
+      }
+    ],
+  ],
+  "env": {
+    "development": {
+      "plugins": [
+        "react-hot-loader/babel"
+      ]
+    }
+  }
+}

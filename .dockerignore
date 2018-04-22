@@ -1,0 +1,11 @@
+node_modules
+confs
+bin
+scripts
+tests
+.md
+*.log
+.git
+.dockerignore
+Dockerfile
+docs/

@@ -1,0 +1,32 @@
+language: node_js
+services:
+- docker
+cache:
+  directories:
+  - ~/.nvm
+  - node_modules
+env:
+  global:
+  - RELEASE_BRANCH="master"
+  - DOCKER_HUB_ACCOUNT="frontband"
+  - MAIN_BRANCHES="master develop"
+node_js:
+- 7.5.0
+before_install:
+- npm run docker:up
+- chmod -R +x bin
+script:
+- npm run test
+- npm run lint
+- ./bin/version-increment.sh
+- ./bin/build.sh
+- ./bin/start.sh
+- sleep 5
+- docker ps
+- RUNNING_CONTAINERS=`docker ps | wc -l`; if [ "${RUNNING_CONTAINERS//[[:space:]]/}"
+  == "1" ]; then echo "[E] Container is not started\!"; docker logs react-boilerplate --details
+  --since 5h; exit 1; fi;
+- npm run nightwatch -- -e travis
+- sleep 5
+after_success:
+- ./bin/ci/push.sh

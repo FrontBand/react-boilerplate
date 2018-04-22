@@ -1,0 +1,4 @@
+$breakpoint-desktop: 1024px;
+$breakpoint-tablet: 768px;
+
+$breakpoint-mobile-max: resolve($breakpoint-tablet - 1px);

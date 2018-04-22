@@ -1,0 +1,33 @@
+<!doctype html>
+<html <%- helmet.htmlAttributes.toString() %> >
+<head>
+  <%- helmet.title.toString() %>
+  <%- helmet.meta.toString() %>
+  <%- helmet.link.toString() %>
+  <% if (inlineCss) { %>
+  <style type="text/css"><%- inlineCss %></style>
+  <% } %>
+</head>
+<body>
+<div id="root"><%- html %></div>
+
+<% if (reduxState) { %>
+<script type="text/javascript" charset="utf-8">
+  window.__REDUX_STATE__ = '<%= reduxState %>';
+</script>
+<% } %>
+<% if (CONFIG) { %>
+<script type="text/javascript" charset="utf-8">
+  window.__CONFIG__ = '<%= CONFIG %>';
+</script>
+<% } %>
+
+<% resources.js.forEach(function(src){ %>
+<script src="<%= src %>"></script>
+<% }) %>
+<% resources.css.forEach(function(src){ %>
+<link rel="stylesheet" href="<%= src %>">
+<% }) %>
+
+</body>
+</html>
