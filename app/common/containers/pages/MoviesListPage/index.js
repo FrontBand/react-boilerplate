@@ -6,17 +6,23 @@ import { provideHooks } from 'redial';
 import { fetchMovies } from '@/redux/data/movies';
 import { getMovies } from '@/reducers';
 
+import Button from '@/components/Button';
 import MovieCard from '@/containers/blocks/MovieCard';
 import withStyles from 'withStyles';
 import styles from './styles.scss';
 
 const MoviesListPage = ({ movies = [], onMovieCardClick }) => (
   <div className={styles.root}>
-    { movies.map(movie => (
-      <div className={styles.item} key={movie.id}>
-        <MovieCard movie={movie} onClick={() => onMovieCardClick(movie)} />
-      </div>
-    ))}
+    <div className={styles.list}>
+      { movies.map(movie => (
+        <div className={styles.item} key={movie.id}>
+          <MovieCard movie={movie} onClick={() => onMovieCardClick(movie)} />
+        </div>
+      ))}
+    </div>
+    <div className={styles.action}>
+      <Button to="/movies/create">Add new movie</Button>
+    </div>
   </div>
 );
 

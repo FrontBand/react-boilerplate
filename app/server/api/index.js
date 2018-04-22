@@ -3,6 +3,8 @@ import uuid from 'uuid/v4';
 import { find, findIndex, omit } from 'lodash';
 
 const router = new Express.Router();
+router.use(Express.json());
+
 let movies = [
   {
     id: uuid(),
@@ -41,7 +43,7 @@ router.get('/movies', (req, res) => {
 
 router.post('/movies', (req, res) => {
   const newMovie = {
-    ...req.body,
+    ...req.body.movie,
     id: uuid(),
   };
   movies.push(newMovie);

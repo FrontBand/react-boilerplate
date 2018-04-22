@@ -5,6 +5,9 @@ import App from '@/containers/layouts/App';
 import Main from '@/containers/layouts/Main';
 
 import MoviesListPage from '@/containers/pages/MoviesListPage';
+import MoviesDetailsPage from '@/containers/pages/MoviesDetailsPage';
+import MoviesCreatePage from '@/containers/pages/MoviesCreatePage';
+
 import NotFoundPage from '@/containers/pages/NotFoundPage';
 
 export const configureRoutes = ({ store }) => { // eslint-disable-line
@@ -14,6 +17,8 @@ export const configureRoutes = ({ store }) => { // eslint-disable-line
       <Route component={Main}>
         <Route path="/">
           <Route path="movies" component={MoviesListPage} />
+          <Route path="movies/create" component={MoviesCreatePage} />
+          <Route path="movies/:id" component={MoviesDetailsPage} />
           <IndexRedirect to="movies" />
           <Route path="*" component={NotFoundPage} />
         </Route>

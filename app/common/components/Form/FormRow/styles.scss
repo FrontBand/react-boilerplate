@@ -1,0 +1,13 @@
+.root {
+  margin-top: 20px;
+
+  &:first-child {
+    margin-top: 0;
+  }
+}
+
+.label {
+  margin-bottom: 10px;
+  font-size: 14px;
+  font-weight: 400;
+}

@@ -10,7 +10,6 @@ import i18next from '@/services/i18next';
 import * as config from '@/config';
 
 import page from './page'; // eslint-disable-line import/no-unresolved
-import seo from './seo';
 import sitemap from './sitemap';
 import api from './api';
 
@@ -48,7 +47,6 @@ server.use(Express.static(path.join(__dirname, '../../public')));
 server.use('/static', Express.static(path.join(__dirname, '../../static')));
 server.use('/fonts', Express.static(path.join(__dirname, '../../assets/fonts')));
 server.use(sitemap); // sitemap generation
-server.use(seo); // add basic SEO optimizations
 server.get('*', page()); // init SSR
 
 server.use((err, req, res) => {

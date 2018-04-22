@@ -18,5 +18,8 @@ export const invoke = config => (dispatch) => {
 
   return dispatch({
     [CALL_API]: result,
+  }).then((action) => {
+    if (action.error) throw action;
+    return action;
   });
 };

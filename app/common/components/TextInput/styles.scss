@@ -1,0 +1,13 @@
+@import "variables.scss";
+
+.input {
+  padding: 8px 12px;
+  border: 1px solid $blue-grey;
+  border-radius: 3px;
+  width: 100%;
+  display: block;
+}
+
+.isError {
+  border-color: $red;
+}

@@ -1,4 +1,9 @@
+
 .root {
+  overflow: hidden;
+}
+
+.list {
   margin-top: -16px;
   margin-left: -16px;
 }
@@ -9,4 +14,8 @@
   display: inline-block;
   vertical-align: top;
   width: 300px;
+}
+
+.action {
+  margin-top: 20px;
 }

@@ -2,26 +2,22 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import withStyles from 'withStyles';
 import { compose } from 'recompose';
-import Poster from '@/components/Poster';
 import styles from './styles.scss';
 
-const MovieCard = ({ movie, ...rest }) => (
+const FormRow = ({ label, children, ...rest }) => (
   <div className={styles.root} {...rest}>
-    <div className={styles.poster}>
-      <Poster src={movie.poster} title={movie.title} />
-    </div>
+    { label && <div className={styles.label}>{ label }</div>}
     <div className={styles.content}>
-      <div className={styles.title}>
-        { movie.title }
-      </div>
+      { children }
     </div>
   </div>
 );
 
-MovieCard.propTypes = {
+FormRow.propTypes = {
   children: PropTypes.node,
+  label: PropTypes.node,
 };
 
 export default compose(
   withStyles(styles)
-)(MovieCard);
+)(FormRow);
