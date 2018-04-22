@@ -37,8 +37,8 @@ export default class RootComponent extends React.Component {
 
     return (
       <I18nextProvider i18n={i18n}>
-        <Provider store={store}>
-          <WithStylesContext onInsertCss={noop}>
+        <WithStylesContext onInsertCss={noop}>
+          <Provider store={store}>
             <Router
               {...renderProps}
               history={history}
@@ -70,8 +70,8 @@ export default class RootComponent extends React.Component {
                 })
               )}
             />
-          </WithStylesContext>
-        </Provider>
+          </Provider>
+        </WithStylesContext>
       </I18nextProvider>
     );
   }

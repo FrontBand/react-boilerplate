@@ -4,12 +4,12 @@ import CookieDough from 'cookie-dough';
 
 import React from 'react';
 import ReactDOMServer from 'react-dom/server';
-import { useRouterHistory, RouterContext, match, Router } from 'react-router';
+import { useRouterHistory, match, Router, applyRouterMiddleware } from 'react-router';
 
 import Helmet from 'react-helmet';
 
 import { I18nextProvider } from 'react-i18next';
-import { triggerHooks } from 'react-router-redial';
+import { triggerHooks, useRedial } from 'react-router-redial';
 import { syncHistoryWithStore } from 'react-router-redux';
 
 import { Provider } from 'react-redux';
@@ -68,11 +68,13 @@ export default () => (req, res, next) => {
       renderProps,
       locals,
       hooks: ['fetch', 'server', 'done'],
-    }).then(() => {
+    }).then(({ redialMap, redialProps }) => {
       const reduxState = escape(JSON.stringify(getState()));
       const css = new Set();
       /* eslint-disable no-underscore-dangle */
       let html;
+      const component = applyRouterMiddleware(useRedial({ redialMap }))(renderProps);
+
       try {
         html = ReactDOMServer.renderToString(
           <I18nextProvider i18n={req.i18n}>
@@ -80,7 +82,7 @@ export default () => (req, res, next) => {
               onInsertCss={styles => styles._getCss && css.add(styles._getCss())}
             >
               <Provider store={store}>
-                <RouterContext {...renderProps} />
+                { component }
               </Provider>
             </WithStylesContext>
           </I18nextProvider>
@@ -96,6 +98,7 @@ export default () => (req, res, next) => {
       res.status(route.status || 200);
       res.render('index', {
         html,
+        redialProps: escape(JSON.stringify(redialProps)),
         reduxState,
         helmet,
         inlineCss: arrayFrom(css).join(''),

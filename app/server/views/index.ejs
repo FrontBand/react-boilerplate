@@ -21,6 +21,11 @@
   window.__CONFIG__ = '<%= CONFIG %>';
 </script>
 <% } %>
+<% if (redialProps) { %>
+<script type="text/javascript" charset="utf-8">
+  window.__REDIAL_PROPS__ = '<%= redialProps %>';
+</script>
+<% } %>
 
 <% resources.js.forEach(function(src){ %>
 <script src="<%= src %>"></script>

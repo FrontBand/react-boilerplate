@@ -1,7 +1,7 @@
 {
   "name": "react-boilerplate",
-  "version": "0.1.54",
-  "description": "MAN UI",
+  "version": "0.1.0",
+  "description": "FrontBand. React boilerplate",
   "repository": "https://github.com/FrontBand/react-boilerplate.git",
   "scripts": {
     "postinstall": "[ $PREBUILD ] && npm run build || exit 0",

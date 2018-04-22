@@ -11,7 +11,7 @@ import MovieCard from '@/containers/blocks/MovieCard';
 import withStyles from 'withStyles';
 import styles from './styles.scss';
 
-const MoviesListPage = ({ movies = [], onMovieCardClick }) => (
+const MoviesListPage = ({ movies, onMovieCardClick }) => (
   <div className={styles.root}>
     <div className={styles.list}>
       { movies.map(movie => (

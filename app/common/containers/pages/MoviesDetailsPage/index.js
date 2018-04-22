@@ -11,7 +11,7 @@ import Poster from '@/components/Poster';
 import withStyles from 'withStyles';
 import styles from './styles.scss';
 
-const MoviesDetailsPage = ({ movie }) => (
+const MoviesDetailsPage = ({ movie = {} }) => (
   <div className={styles.root}>
     <div className={styles.poster}>
       <Poster src={movie.poster} title={movie.title} />
