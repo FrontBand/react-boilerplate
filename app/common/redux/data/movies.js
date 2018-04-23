@@ -19,8 +19,8 @@ export const fetchMovies = options => invoke({
   }, 'movies/FETCH_LIST_FAILURE'],
 });
 
-export const fetchMovie = (apiId, options) => invoke({
-  endpoint: createUrl(`${API_URL}/movies/${apiId}`, options),
+export const fetchMovie = (movieId, options) => invoke({
+  endpoint: createUrl(`${API_URL}/movies/${movieId}`, options),
   method: 'GET',
   headers: {
     'content-type': 'application/json',

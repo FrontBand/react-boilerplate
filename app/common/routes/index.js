@@ -20,7 +20,7 @@ export const configureRoutes = ({ store }) => { // eslint-disable-line
           <Route path="movies/create" component={MoviesCreatePage} />
           <Route path="movies/:id" component={MoviesDetailsPage} />
           <IndexRedirect to="movies" />
-          <Route path="*" component={NotFoundPage} />
+          <Route path="*" component={NotFoundPage} status={404} />
         </Route>
       </Route>
     </Route>

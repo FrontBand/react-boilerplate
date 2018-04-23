@@ -1,6 +1,5 @@
 import React from 'react';
 import { compose } from 'recompose';
-import withStyles from 'withStyles';
 import { reduxForm, Field } from 'redux-form';
 import { translate } from 'react-i18next';
 
@@ -11,8 +10,6 @@ import TextareaInput from '@/components/TextareaInput';
 import Button from '@/components/Button';
 
 import { reduxFormValidate } from 'react-nebo15-validate';
-
-import styles from './styles.scss';
 
 const MovieForm = ({ handleSubmit, t }) => (
   <Form onSubmit={handleSubmit}>
@@ -39,7 +36,6 @@ const MovieForm = ({ handleSubmit, t }) => (
 
 export default compose(
   translate(),
-  withStyles(styles),
   reduxForm({
     form: 'movie-form',
     initialValues: {},
