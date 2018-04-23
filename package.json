@@ -18,7 +18,7 @@
     "test": "npm run karma:single-run",
     "test:watch": "npm run karma",
     "nightwatch": "nightwatch",
-    "hooks:commit": "lint-staged && npm test",
+    "hooks:commit": "lint-staged",
     "stylelint": "stylelint 'app/**/*.scss' 'app/**/*.css' 'assets/**/*.scss' 'assets/**/*.css'",
     "lint": "eslint app tests && npm run stylelint",
     "report-coverage": "cat ./coverage/**/*.info | ./node_modules/.bin/coveralls",
