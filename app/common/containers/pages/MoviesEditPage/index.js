@@ -1,34 +1,20 @@
 import React from 'react';
-import { compose } from 'recompose';
+import { compose, withHandlers } from 'recompose';
 import { connect } from 'react-redux';
-import { withRouter, Link } from 'react-router';
+import { withRouter } from 'react-router';
 import { provideHooks } from 'redial';
 import { translate } from 'react-i18next';
-import { fetchMovie } from '@/redux/data/movies';
+import { updateMovie, fetchMovie } from '@/redux/data/movies';
 import { getMovie } from '@/reducers';
 
-import Poster from '@/components/Poster';
+import MovieForm from '@/containers/forms/MovieForm';
 
 import withStyles from 'withStyles';
 import styles from './styles.scss';
 
-const MoviesDetailsPage = ({ movie = {}, t }) => (
+const MoviesDetailsPage = ({ onSubmit, movie = {} }) => (
   <div className={styles.root}>
-    <div className={styles.poster}>
-      <Poster src={movie.poster} title={movie.title} />
-    </div>
-    <div className={styles.content}>
-      <div className={styles.title}>{movie.title}</div>
-      <div className={styles.info}>
-        <p>{movie.year}</p>
-        <p>{movie.description}</p>
-        <p>{movie.director}</p>
-        <p>
-          <Link to="/movies">{t('Back to the list of movies')}</Link>
-        </p>
-        edit
-      </div>
-    </div>
+    <MovieForm initialValues={movie} onSubmit={onSubmit} />
   </div>
 );
 
@@ -44,7 +30,16 @@ export default compose(
         });
       }),
   }),
-  connect((state, ownProps) => ({
-    movie: getMovie(state, ownProps.movieId),
-  }))
+  connect(
+    (state, ownProps) => ({
+      movie: getMovie(state, ownProps.movieId),
+    }),
+    { updateMovie }
+  ),
+  withHandlers({
+    onSubmit: ({ updateMovie, router }) => async (formValues) => {
+      const response = await updateMovie(formValues.id, formValues);
+      router.push(`/movies/${response.payload.result}`);
+    },
+  })
 )(MoviesDetailsPage);

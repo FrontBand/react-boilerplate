@@ -13,7 +13,7 @@ import Button from '@/components/Button';
 import withStyles from 'withStyles';
 import styles from './styles.scss';
 
-const MoviesDetailsPage = ({ movie = {}, t }) => (
+const MoviesDetailsPage = ({ onRemove, movie = {}, t }) => (
   <div className={styles.root}>
     <div className={styles.poster}>
       <Poster src={movie.poster} title={movie.title} />
@@ -32,7 +32,7 @@ const MoviesDetailsPage = ({ movie = {}, t }) => (
           {t('Edit')}
         </Button>
 
-        <Button remove to="/movies">
+        <Button remove to="/movies" onClick={onRemove}>
           {t('Remove')}
         </Button>
       </div>
