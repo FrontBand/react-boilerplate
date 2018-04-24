@@ -62,7 +62,7 @@ router.post('/movies', (req, res) => {
 router.get('/movies/:id', (req, res) => {
   const movie = find(movies, { id: req.params.id });
   if (!movie) {
-    return res.status(404);
+    return res.sendStatus(404);
   }
   return res.json({
     data: movie,
@@ -87,7 +87,7 @@ router.put('/movies/:id', (req, res) => {
 router.delete('/movies/:id', (req, res) => {
   const movie = find(movies, { id: req.params.id });
   if (!movie) {
-    return res.status(404);
+    return res.sendStatus(404);
   }
   movies = movies.filter(i => i.id !== req.params.id);
   return res.json({
