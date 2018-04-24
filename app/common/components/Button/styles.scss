@@ -9,9 +9,18 @@
   cursor: pointer;
   display: inline-block;
   text-decoration: none;
+  text-align: center;
 }
 
 .isBlock {
   width: 100%;
   display: block;
+}
+
+.isEdit {
+  background: orange;
+}
+
+.isRemove {
+  background: red;
 }

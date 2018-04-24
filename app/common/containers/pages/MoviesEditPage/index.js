@@ -8,7 +8,6 @@ import { fetchMovie } from '@/redux/data/movies';
 import { getMovie } from '@/reducers';
 
 import Poster from '@/components/Poster';
-import Button from '@/components/Button';
 
 import withStyles from 'withStyles';
 import styles from './styles.scss';
@@ -27,14 +26,7 @@ const MoviesDetailsPage = ({ movie = {}, t }) => (
         <p>
           <Link to="/movies">{t('Back to the list of movies')}</Link>
         </p>
-
-        <Button edit to={`/movies/${movie.id}/edit`}>
-          {t('Edit')}
-        </Button>
-
-        <Button remove to="/movies">
-          {t('Remove')}
-        </Button>
+        edit
       </div>
     </div>
   </div>
