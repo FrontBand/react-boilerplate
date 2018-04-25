@@ -17,7 +17,6 @@
     "karma:single-run": "karma start karma.config.js --single-run",
     "test": "npm run karma:single-run",
     "test:watch": "npm run karma",
-    "nightwatch": "nightwatch",
     "hooks:commit": "lint-staged",
     "stylelint": "stylelint 'app/**/*.scss' 'app/**/*.css' 'assets/**/*.scss' 'assets/**/*.css'",
     "lint": "eslint app tests && npm run stylelint",
@@ -26,7 +25,8 @@
     "docker:up": "docker-compose -f ./docker/dc.selenium.yml up -d",
     "docker:down": "docker-compose -f ./docker/dc.selenium.yml down",
     "locales:extract": "i18next-extract-gettext --files='./+(app)/**/*.+(js|json)' --output=app/common/locales/source.pot",
-    "storybook": "start-storybook -p 9001 -c .storybook"
+    "storybook": "start-storybook -p 9001 -c .storybook",
+    "cypress:open": "cypress open"
   },
   "lint-staged": {
     "*.js": "eslint app",
@@ -168,7 +168,6 @@
     "karma-webpack": "^2.0.3",
     "lint-staged": "^4.0.1",
     "mocha": "^3.4.2",
-    "nightwatch": "^0.9.16",
     "react-addons-test-utils": "^15.2.1",
     "selenium-download": "^2.0.10",
     "selenium-server-standalone-jar": "^2.53.1",
