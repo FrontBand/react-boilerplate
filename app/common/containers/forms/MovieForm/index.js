@@ -10,6 +10,7 @@ import TextareaInput from '@/components/TextareaInput';
 import Button from '@/components/Button';
 
 import { reduxFormValidate } from 'react-nebo15-validate';
+import '@/services/validation';
 
 const MovieForm = ({ handleSubmit, t }) => (
   <Form onSubmit={handleSubmit}>
@@ -17,7 +18,7 @@ const MovieForm = ({ handleSubmit, t }) => (
       <Field component={FormField} inputComponent={TextInput} name="title" />
     </FormRow>
     <FormRow label={t('Poster url')}>
-      <Field component={FormField} inputComponent={TextInput} name="poster" />
+      <Field component={FormField} inputComponent={TextInput} name="poster" type="url" />
     </FormRow>
     <FormRow label={t('Description')}>
       <Field component={FormField} inputComponent={TextareaInput} name="description" />
@@ -44,6 +45,7 @@ export default compose(
         required: true,
       },
       poster: {
+        validFileFormat: true,
         required: true,
       },
       description: {
@@ -51,6 +53,8 @@ export default compose(
       },
       year: {
         required: true,
+        min: 1910,
+        max: new Date().getFullYear(),
       },
       director: {
         required: true,

@@ -12,9 +12,7 @@ import styles from './styles.scss';
 
 const MoviesCreatePage = ({ onSubmit, t }) => (
   <div className={styles.root}>
-    <div className={styles.title}>
-      {t('Create new movie')}
-    </div>
+    <div className={styles.title}>{t('Create new movie')}</div>
     <div className={styles.back}>
       <Link to="/movies">{t('Back to the list of movies')}</Link>
     </div>
