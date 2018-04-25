@@ -4,7 +4,7 @@
   "env": {
     "browser": true,
     "node": true,
-    "mocha": true
+    "cypress/globals": true
   },
   "globals": {
     "__DEV__": true,
@@ -12,7 +12,8 @@
     "__REDUX_STATE__": true
   },
   "plugins": [
-    "chai-expect"
+    "chai-expect",
+    "cypress"
   ],
   "rules": {
     "no-nested-ternary": 0,
