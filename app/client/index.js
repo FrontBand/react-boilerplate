@@ -9,6 +9,7 @@ import { browserHistory, match } from 'react-router';
 import { syncHistoryWithStore } from 'react-router-redux';
 
 import i18n from '@/services/i18next';
+import '@/services/validations';
 
 import { configureStore } from '@/store';
 import { configureRoutes } from '@/routes';
