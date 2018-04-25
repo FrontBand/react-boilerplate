@@ -21,6 +21,7 @@ import { configureStore } from '@/store';
 
 import { configureRoutes } from '@/routes';
 import WithStylesContext from '@/WithStylesContext';
+import '@/services/validations';
 
 export default () => (req, res, next) => {
   if (__DEV__) {
