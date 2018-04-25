@@ -15,7 +15,7 @@ import styles from './styles.scss';
 const MoviesListPage = ({ movies, onMovieCardClick, t }) => (
   <div className={styles.root}>
     <div className={styles.list}>
-      { movies.map(movie => (
+      {movies.map(movie => (
         <div className={styles.item} key={movie.id}>
           <MovieCard movie={movie} onClick={() => onMovieCardClick(movie)} />
         </div>
@@ -32,9 +32,10 @@ export default compose(
   translate(),
   withRouter,
   provideHooks({
-    fetch: ({ dispatch, setProps }) => dispatch(fetchMovies()).then((response) => {
-      setProps({ moviesIds: response.payload.result });
-    }),
+    fetch: ({ dispatch, setProps }) =>
+      dispatch(fetchMovies()).then((response) => {
+        setProps({ moviesIds: response.payload.result });
+      }),
   }),
   connect((state, ownProps) => ({
     movies: getMovies(state, ownProps.moviesIds || []),

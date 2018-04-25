@@ -5,12 +5,12 @@ import { compose, withProps, pure } from 'recompose';
 import ErrorMessages from '@/components/ErrorMessages';
 import styles from './styles.scss';
 
-const FormField = ({ input, meta, showError, inputComponent: InputComponent }) => (
+const FormField = ({ input, meta, showError, inputComponent: InputComponent, ...rest }) => (
   <div className={styles.root}>
     <div className={styles.input}>
-      <InputComponent {...input} error={showError && meta.error} />
+      <InputComponent {...input} error={showError && meta.error} {...rest} />
     </div>
-    { showError && (
+    {showError && (
       <div className={styles.error}>
         <ErrorMessages error={meta.error} />
       </div>

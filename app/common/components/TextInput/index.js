@@ -14,6 +14,4 @@ TextInput.propTypes = {
   error: PropTypes.bool,
 };
 
-export default compose(
-  withStyles(styles)
-)(TextInput);
+export default compose(withStyles(styles))(TextInput);

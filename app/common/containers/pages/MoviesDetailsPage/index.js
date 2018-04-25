@@ -1,10 +1,10 @@
 import React from 'react';
-import { compose } from 'recompose';
+import { compose, withHandlers } from 'recompose';
 import { connect } from 'react-redux';
 import { withRouter, Link } from 'react-router';
 import { provideHooks } from 'redial';
 import { translate } from 'react-i18next';
-import { fetchMovie } from '@/redux/data/movies';
+import { fetchMovie, deleteMovie } from '@/redux/data/movies';
 import { getMovie } from '@/reducers';
 
 import Poster from '@/components/Poster';
@@ -13,7 +13,7 @@ import Button from '@/components/Button';
 import withStyles from 'withStyles';
 import styles from './styles.scss';
 
-const MoviesDetailsPage = ({ onRemove, movie = {}, t }) => (
+const MoviesDetailsPage = ({ onDelete, movie = {}, t }) => (
   <div className={styles.root}>
     <div className={styles.poster}>
       <Poster src={movie.poster} title={movie.title} />
@@ -32,7 +32,7 @@ const MoviesDetailsPage = ({ onRemove, movie = {}, t }) => (
           {t('Edit')}
         </Button>
 
-        <Button remove to="/movies" onClick={onRemove}>
+        <Button remove onClick={onDelete}>
           {t('Remove')}
         </Button>
       </div>
@@ -52,7 +52,16 @@ export default compose(
         });
       }),
   }),
-  connect((state, ownProps) => ({
-    movie: getMovie(state, ownProps.movieId),
-  }))
+  connect(
+    (state, ownProps) => ({
+      movie: getMovie(state, ownProps.movieId),
+    }),
+    { deleteMovie }
+  ),
+  withHandlers({
+    onDelete: ({ deleteMovie, movieId, router }) => async () => {
+      await deleteMovie(movieId);
+      router.push('/movies');
+    },
+  })
 )(MoviesDetailsPage);
