@@ -1,4 +1,4 @@
-describe('Example Test', () => {
+describe('Create a new post test', () => {
   it('Creating a New Post', () => {
     cy.visit('/movies/create');
 
