@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import { withRouter } from 'react-router';
 import { provideHooks } from 'redial';
 import { fetchMovies } from '@/redux/data/movies';
-import { getMovies } from '@/reducers';
+import { getMovies } from '@/redux';
 import { translate } from 'react-i18next';
 
 import Button from '@/components/Button';

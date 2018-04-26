@@ -5,7 +5,7 @@ import { withRouter, Link } from 'react-router';
 import { provideHooks } from 'redial';
 import { translate } from 'react-i18next';
 import { fetchMovie } from '@/redux/data/movies';
-import { getMovie } from '@/reducers';
+import { getMovie } from '@/redux';
 
 import Poster from '@/components/Poster';
 

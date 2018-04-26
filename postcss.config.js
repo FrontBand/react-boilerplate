@@ -14,7 +14,7 @@ module.exports = {
   plugins: [
     postCssImport({
       path: [
-        'assets/styles',
+        'app/common/styles',
       ],
     }),
     precss,

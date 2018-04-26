@@ -6,7 +6,7 @@ import thunkMiddleware from 'redux-thunk';
 import multiMiddleware from 'redux-multi';
 import { apiMiddleware } from 'redux-api-middleware';
 
-import rootReducer from '../reducers';
+import rootReducer from '@/redux';
 
 const middlewares = [
   multiMiddleware, promiseMiddleware, apiMiddleware,

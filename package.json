@@ -16,10 +16,6 @@
     "hooks:commit": "lint-staged",
     "stylelint": "stylelint 'app/**/*.scss' 'app/**/*.css' 'assets/**/*.scss' 'assets/**/*.css'",
     "lint": "eslint app tests && npm run stylelint",
-    "report-coverage": "cat ./coverage/**/*.info | ./node_modules/.bin/coveralls",
-    "docker:reset": "npm run docker:down && npm run docker:up",
-    "docker:up": "docker-compose -f ./docker/dc.selenium.yml up -d",
-    "docker:down": "docker-compose -f ./docker/dc.selenium.yml down",
     "locales:extract": "i18next-extract-gettext --files='./+(app)/**/*.+(js|json)' --output=app/common/locales/source.pot",
     "storybook": "start-storybook -p 9001 -c .storybook",
     "test:acceptance": "cypress run --browser chrome"
