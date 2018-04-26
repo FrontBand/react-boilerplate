@@ -22,7 +22,7 @@ Example project. We are using it as a start point for out applications or as a b
 - `app` - our application files. React JS app is here
 - `.storybook` - storybook configuration files.
 - `bin` - CI automation scripts
-- `cypress` - e2e tests
+- `cypress` - acceptance tests
 - `docs` - docs related documents, assets
 - `public` - public static data, like favicon, robot.txt, that is not using in react js app and that doesn't have to go thought webpack process
 - `webpack` - webpack configuration parts
@@ -289,7 +289,7 @@ We are using redux as our global state manager in the app. Our base store struct
 
 Actions and reducers are stored in the same file. We are using [`redux-actions`](npmjs.com/package/redux-actions) as a single way to create an action. See [example](./app/common/redux/ui/loading.js).
 
-#### selectors
+#### Selectors
 
 Selectors are stored in [redux/index.js](./app/common/redux/index.js) file. Basic set of data selectors contains next methods:
 
@@ -412,7 +412,7 @@ TODO
 
 ### Testing
 
-#### E2E, Acceptance testing
+#### Acceptance testing
 
 Cypress.io is used for E2E testing.
 
