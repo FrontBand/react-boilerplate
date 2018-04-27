@@ -57,7 +57,7 @@ We're using eslint to keep js and jsx code style consistent. Check that your IDE
 ##### Atom
 Add plugin [linter-eslint](https://atom.io/packages/linter-eslint). Go to the plugin's configuration and enable option **Fix errors on save**
 
-![./docs/images/atom-eslint-autofix.png](Fix errors on save)
+![Fix errors on save](./docs/images/atom-eslint-autofix.png)
 
 #### Stylelint
 
