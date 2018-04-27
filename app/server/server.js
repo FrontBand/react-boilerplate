@@ -45,7 +45,6 @@ server.use(i18nextMiddleware.handle(i18next));
 server.use('/api', api);
 server.use(Express.static(path.join(__dirname, '../../public')));
 server.use('/static', Express.static(path.join(__dirname, '../../static')));
-server.use('/fonts', Express.static(path.join(__dirname, '../../assets/fonts')));
 server.use(sitemap); // sitemap generation
 server.get('*', page()); // init SSR
 

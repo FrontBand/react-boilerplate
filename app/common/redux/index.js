@@ -4,16 +4,19 @@ import { routerReducer as routing } from 'react-router-redux';
 import { denormalize } from 'normalizr';
 import * as schemas from '@/schemas';
 
-import loading from '@/redux/loading';
+import loading from './ui/loading';
+import data from './data';
 
-import data from '@/redux/data';
+const ui = combineReducers({
+  loading,
+});
 
 export default combineReducers({
   data,
   // external libraries
   form,
   routing,
-  loading,
+  ui,
 });
 
 export const getLocation = state => state.routing.locationBeforeTransitions;

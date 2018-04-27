@@ -76,8 +76,8 @@ if (process.env.NODE_ENV !== 'production' && module.hot) {
     render(Root, lastRenderProps);
   });
 
-  module.hot.accept('../common/reducers', () => {
-    const nextRootReducer = require('../common/reducers').default; // eslint-disable-line
+  module.hot.accept('../common/redux', () => {
+    const nextRootReducer = require('../common/redux').default; // eslint-disable-line
     store.replaceReducer(nextRootReducer);
   });
 }
