@@ -130,6 +130,7 @@
     "@storybook/addon-options": "^3.4.2",
     "@storybook/channels": "^3.4.2",
     "@storybook/react": "^3.4.2",
+    "argos-cli": "^0.0.9",
     "babel-eslint": "^6.1.2",
     "babel-istanbul-instrumenter-loader": "^1.0.1",
     "babel-jest": "^23.0.1",
