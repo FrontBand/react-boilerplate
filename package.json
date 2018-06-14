@@ -64,7 +64,7 @@
     "core-js": "^2.4.1",
     "cross-env": "^2.0.0",
     "css-loader": "^0.28.4",
-    "cypress": "^2.1.0",
+    "cypress": "^3.0.1",
     "date-fns": "^2.0.0-alpha.1",
     "dotenv": "^2.0.0",
     "ejs": "^2.4.2",
