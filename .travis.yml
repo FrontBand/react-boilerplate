@@ -31,8 +31,7 @@ script:
   == "1" ]; then echo "[E] Container is not started\!"; docker logs react-boilerplate
   --details --since 5h; exit 1; fi;
 - yarn test:acceptance
-- ARGOS_COMMIT=$TRAVIS_COMMIT ARGOS_BRANCH=$TRAVIS_BRANCH \
-  yarn argos upload cypress/screenshots --token $ARGOS_TOKEN || true
+- ARGOS_COMMIT=$TRAVIS_COMMIT ARGOS_BRANCH=$TRAVIS_BRANCH yarn argos upload cypress/screenshots --token $ARGOS_TOKEN || true
 - sleep 5
 after_success:
 - "./bin/ci/push.sh"
