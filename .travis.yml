@@ -13,10 +13,6 @@ env:
 node_js:
 - 7.5.0
 before_install:
-- npm install -g yarn
-- npm --version
-- node --version
-- yarn --version
 - chmod -R +x bin
 script:
 - yarn test
