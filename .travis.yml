@@ -35,4 +35,4 @@ script:
 after_success:
 - "./bin/ci/push.sh"
 - ARGOS_COMMIT=$TRAVIS_COMMIT ARGOS_BRANCH=$TRAVIS_BRANCH \
-  argos upload cypress/screenshots --token $ARGOS_TOKEN || true
+  yarn argos upload cypress/screenshots --token $ARGOS_TOKEN || true
