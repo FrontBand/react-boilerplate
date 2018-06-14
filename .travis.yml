@@ -12,6 +12,8 @@ env:
   - MAIN_BRANCHES="master develop"
 node_js:
 - 7.5.0
+install:
+- yarn install --no-progress --frozen-lockfile
 before_install:
 - chmod -R +x bin
 script:

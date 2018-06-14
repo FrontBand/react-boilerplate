@@ -11,13 +11,13 @@ RUN apk add --update \
 RUN npm i -g pm2 --quiet
 
 COPY package.json /tmp/package.json
-RUN cd /tmp && npm install --production --quiet || { exit 1; } && mkdir -p /opt/app && cp -a /tmp/node_modules /opt/app/
+RUN cd /tmp && yarn install --no-progress --frozen-lockfile || { exit 1; } && mkdir -p /opt/app && cp -a /tmp/node_modules /opt/app/
 
 WORKDIR /opt/app
 
 COPY . /opt/app
 
-RUN npm run build
+RUN yarn build
 
 RUN rm -rf ./app/client \
 	rm -rf ./app/common \
