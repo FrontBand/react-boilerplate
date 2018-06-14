@@ -22,9 +22,6 @@ const MovieForm = ({ handleSubmit, t }) => (
     <FormRow label={t('Description')}>
       <Field component={FormField} inputComponent={TextareaInput} name="description" />
     </FormRow>
-    <FormRow label={t('Year')}>
-      <Field component={FormField} inputComponent={TextInput} name="year" type="number" />
-    </FormRow>
     <FormRow label={t('Director')}>
       <Field component={FormField} inputComponent={TextInput} name="director" />
     </FormRow>
