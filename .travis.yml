@@ -34,6 +34,8 @@ script:
   == "1" ]; then echo "[E] Container is not started\!"; docker logs react-boilerplate
   --details --since 5h; exit 1; fi;
 - yarn test:acceptance
+- ARGOS_COMMIT=$TRAVIS_COMMIT ARGOS_BRANCH=$TRAVIS_BRANCH \
+  yarn argos upload cypress/screenshots --token $ARGOS_TOKEN || true
 - sleep 5
 before_cache:
 # Save tagged docker images
@@ -42,5 +44,3 @@ before_cache:
   | xargs -n 2 -t sh -c 'test -e $HOME/docker/$1.tar.gz || docker save $0 | gzip -2 > $HOME/docker/$1.tar.gz'
 after_success:
 - "./bin/ci/push.sh"
-- ARGOS_COMMIT=$TRAVIS_COMMIT ARGOS_BRANCH=$TRAVIS_BRANCH \
-  ./node_modules/.bin/argos upload cypress/screenshots --token $ARGOS_TOKEN || true
