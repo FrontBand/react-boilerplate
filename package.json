@@ -19,8 +19,7 @@
     "locales:extract": "i18next-extract-gettext --files='./+(app)/**/*.+(js|json)' --output=app/common/locales/source.pot",
     "storybook": "start-storybook -p 9001 -c .storybook",
     "test": "jest",
-    "test:acceptance": "cypress run --browser chrome",
-    "argos": "argos"
+    "test:acceptance": "cypress run --browser chrome"
   },
   "lint-staged": {
     "*.js": "eslint app",
