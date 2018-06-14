@@ -13,11 +13,14 @@ env:
 node_js:
 - 7.5.0
 before_install:
-- npm run docker:up
+- npm install -g yarn
+- npm --version
+- node --version
+- yarn --version
 - chmod -R +x bin
 script:
-- npm run test
-- npm run lint
+- yarn test
+- yarn lint
 - ./bin/version-increment.sh
 - ./bin/build.sh
 - ./bin/start.sh
