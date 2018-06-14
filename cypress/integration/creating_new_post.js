@@ -1,6 +1,7 @@
 describe('Create a new post test', () => {
   it('Creating a New Post', () => {
     cy.visit('/movies/create');
+    cy.screenshot();
 
     cy.get('input[name=title]')
       .type('Test title');

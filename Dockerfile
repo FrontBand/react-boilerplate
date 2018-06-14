@@ -1,4 +1,4 @@
-FROM node:alpine
+FROM node:9.3.0-alpine
 
 EXPOSE 8080
 
@@ -11,13 +11,17 @@ RUN apk add --update \
 RUN npm i -g pm2 --quiet
 
 COPY package.json /tmp/package.json
-RUN cd /tmp && npm install --production --quiet || { exit 1; } && mkdir -p /opt/app && cp -a /tmp/node_modules /opt/app/
+COPY yarn.lock /tmp/yarn.lock
+
+RUN yarn --version && node --version && npm --version
+
+RUN cd /tmp && ls -la && yarn install --no-progress --frozen-lockfile || { exit 1; } && mkdir -p /opt/app && cp -a /tmp/node_modules /opt/app/
 
 WORKDIR /opt/app
 
 COPY . /opt/app
 
-RUN npm run build
+RUN yarn build
 
 RUN rm -rf ./app/client \
 	rm -rf ./app/common \

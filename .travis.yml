@@ -3,29 +3,35 @@ services:
 - docker
 cache:
   directories:
-  - ~/.nvm
+  - "~/.nvm"
   - node_modules
+  - ~/.npm
+  - ~/.cache
 env:
   global:
   - RELEASE_BRANCH="master"
   - DOCKER_HUB_ACCOUNT="frontband"
   - MAIN_BRANCHES="master develop"
+  - secure: X3VGjTmC+XMv1cockfzaYLcVPBX9jgbFCwXSvzlxjQ8M1d9dYHgQO3JHaprdWTiELSEK/rjf3Tw8LmT9l0EkX8nh/mU9c1aTEGqgr6w2lTYt3P03olDKA5spDivIFoy0KjtYJJcrBuYl7q9OdTmpJl3JPsm9PSsJTdaLmd9KU/rmdeJMXVL/S7QvXDNNFd82k12j2sO4EeeaSMOfid4TvmrfsNh/zDHk0TU4WZTTCBTawxgGymfw1Xnp6tl8UhCOFLMLatb9gaeI0cAWiyPM03FZQbEbQjMU79ifBeVZFtP/PCbF+w2m9GZc8/G1CzwSn39P1TpB7uEzCqMXYKfrJI2ROPK0LbaHmHRrIBPbZDtjzsAWEDCQqk3oTJjWSCXcaeRG90ByP2qOsuxzfQDGx0prTaToRAsjfL0frSBdHS8G0ebtxCD6x68DH0iMFkUH4sUAXpnl23RVblwR9/xSv5g8Qgea5xDIQEXDchLJtcHCwtVvH6xD6gSwIpXmdLZTWRlqGaaDoxO2nXCfZ7eWAeu5nM8Y8S/CfHcqYYPKRqIi2M95DmhUlofXY/7KTjK/tBW1dGUx1g3CYffZklrdTU9qlSWryeYWiZQj5tNPYlcDlPHcTGune8p4zcJg3dVOMKZVFI6CgO8v6jj/t2kb41iUFKyzmuYG1LT8eENQrJg=
 node_js:
 - 7.5.0
+install:
+- yarn install --no-progress --frozen-lockfile
 before_install:
-- npm run docker:up
 - chmod -R +x bin
 script:
-- npm run test
-- npm run lint
-- ./bin/version-increment.sh
-- ./bin/build.sh
-- ./bin/start.sh
+- yarn test
+- yarn lint
+- "./bin/version-increment.sh"
+- "./bin/build.sh"
+- "./bin/start.sh"
 - sleep 5
 - docker ps
 - RUNNING_CONTAINERS=`docker ps | wc -l`; if [ "${RUNNING_CONTAINERS//[[:space:]]/}"
-  == "1" ]; then echo "[E] Container is not started\!"; docker logs react-boilerplate --details
-  --since 5h; exit 1; fi;
+  == "1" ]; then echo "[E] Container is not started\!"; docker logs react-boilerplate
+  --details --since 5h; exit 1; fi;
+- yarn test:acceptance
+- ARGOS_COMMIT=$TRAVIS_COMMIT ARGOS_BRANCH=$TRAVIS_BRANCH yarn argos upload cypress/screenshots --token $ARGOS_TOKEN || true
 - sleep 5
 after_success:
-- ./bin/ci/push.sh
+- "./bin/ci/push.sh"
