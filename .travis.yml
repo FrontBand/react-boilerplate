@@ -5,6 +5,8 @@ cache:
   directories:
   - "~/.nvm"
   - node_modules
+  - ~/.npm
+  - ~/.cache
 env:
   global:
   - RELEASE_BRANCH="master"
