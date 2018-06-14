@@ -28,6 +28,7 @@ script:
 - RUNNING_CONTAINERS=`docker ps | wc -l`; if [ "${RUNNING_CONTAINERS//[[:space:]]/}"
   == "1" ]; then echo "[E] Container is not started\!"; docker logs react-boilerplate
   --details --since 5h; exit 1; fi;
+- yarn test:acceptance
 - sleep 5
 after_success:
 - "./bin/ci/push.sh"
