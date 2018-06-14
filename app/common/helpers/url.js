@@ -6,7 +6,7 @@ export const createUrl = (endpoint, options) => {
 
   url.search = qs.stringify({
     ...qs.parse(url.search),
-    ...options,
+    options,
   });
   return Url.format(url);
 };
