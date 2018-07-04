@@ -18,7 +18,16 @@ const MoviesCreatePage = ({ onSubmit, t, movie }) => (
       <Link to="/movies">{t('Back to the list of movies')}</Link>
     </div>
     <div className={styles.form}>
-      <MovieForm movie={movie} onSubmit={onSubmit} />
+      <MovieForm
+        initialValues={{
+          title: movie.title,
+          poster: movie.poster,
+          description: movie.description,
+          year: movie.year,
+          director: movie.director,
+        }}
+        onSubmit={onSubmit}
+      />
     </div>
   </div>
 );
@@ -31,7 +40,9 @@ export default compose(
     fetch: ({ dispatch, params, setProps }) =>
       dispatch(fetchMovie(params.id)).then((response) => {
         setProps({
-          movie: [...Object.values(response.payload.entities.movies)],
+          movie: Object.values(response.payload.entities.movies).reduce(
+            (prev, next) => ({ ...prev, ...next }),
+          ),
         });
       }),
   }),
