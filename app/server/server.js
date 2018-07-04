@@ -62,5 +62,5 @@ server.listen(server.get('port'), (err) => {
     return;
   }
 
-  console.log(`Listening at http://localhost: ${server.get('port')}`);
+  console.log(`Listening at http://localhost:${server.get('port')}`);
 });
