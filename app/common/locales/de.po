@@ -1,0 +1,64 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: i18next-conv\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"POT-Creation-Date: 2018-07-04 20:15+0300\n"
+"PO-Revision-Date: 2018-07-04 20:16+0300\n"
+"Language-Team: \n"
+"X-Generator: Poedit 1.8.7.1\n"
+"Last-Translator: \n"
+"Language: de\n"
+
+msgid "Required field"
+msgstr "Pflichtfeld"
+
+msgid "Min length is <%= params %>"
+msgstr "Min. Länge ist"
+
+msgid "Title"
+msgstr "Titel"
+
+msgid "Poster url"
+msgstr "Poster url"
+
+msgid "Description"
+msgstr "Beschreibung"
+
+msgid "Year"
+msgstr "Jahr"
+
+msgid "Director"
+msgstr "Direktor"
+
+msgid "Is Favorite"
+msgstr "Ist Favorit"
+
+msgid "Create"
+msgstr "Erstellen"
+
+msgid "Create new movie"
+msgstr "Erstelle einen neuen Film"
+
+msgid "Back to the list of movies"
+msgstr "Zurück zur Liste der Filme"
+
+msgid "Edit movie"
+msgstr "Film bearbeiten"
+
+msgid "Delete movie"
+msgstr "Film löschen"
+
+msgid "Update"
+msgstr "Aktualisieren"
+
+msgid "Favorites"
+msgstr "Favoriten"
+
+msgid "Add new movie"
+msgstr "Füge einen neuen Film hinzu"
+
+msgid "Page Not Found"
+msgstr "Seite nicht gefunden"

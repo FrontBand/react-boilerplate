@@ -22,7 +22,7 @@ const MoviesListPage = ({
 }) => (
   <div className={styles.root}>
     <CheckBox
-      label="Favorites"
+      label={t('Favorites')}
       checked={isFavorite}
       onClick={onFilterHandler}
     />
