@@ -12,7 +12,7 @@ import CheckBox from '@/components/CheckBox';
 
 import { reduxFormValidate } from 'react-nebo15-validate';
 
-const MovieForm = ({ handleSubmit, t }) => (
+const MovieForm = ({ buttonText, handleSubmit, t }) => (
   <Form onSubmit={handleSubmit}>
     <FormRow label={t('Title')}>
       <Field component={FormField} inputComponent={TextInput} name="title" />
@@ -39,10 +39,10 @@ const MovieForm = ({ handleSubmit, t }) => (
       <Field component={FormField} inputComponent={TextInput} name="director" />
     </FormRow>
     <FormRow label={t('Is Favorite')}>
-      <CheckBox />
+      <Field component={FormField} inputComponent={CheckBox} name="isFavorite" />
     </FormRow>
     <FormRow>
-      <Button type="submit">{t('Create')}</Button>
+      <Button type="submit">{buttonText || t('Create')}</Button>
     </FormRow>
   </Form>
 );

@@ -5,6 +5,7 @@ import { withRouter, Link } from 'react-router';
 import { provideHooks } from 'redial';
 import { translate } from 'react-i18next';
 import { updateMovie, fetchMovie } from '@/redux/data/movies';
+import { getMovie } from '@/redux';
 
 import MovieForm from '@/containers/forms/MovieForm';
 
@@ -26,6 +27,7 @@ const MoviesCreatePage = ({ onSubmit, t, movie }) => (
           year: movie.year,
           director: movie.director,
         }}
+        buttonText={t('Update')}
         onSubmit={onSubmit}
       />
     </div>
@@ -40,14 +42,14 @@ export default compose(
     fetch: ({ dispatch, params, setProps }) =>
       dispatch(fetchMovie(params.id)).then((response) => {
         setProps({
-          movie: Object.values(response.payload.entities.movies).reduce(
-            (prev, next) => ({ ...prev, ...next }),
-          ),
+          movieId: response.payload.result,
         });
       }),
   }),
   connect(
-    null,
+    (state, ownProps) => ({
+      movie: getMovie(state, ownProps.movieId),
+    }),
     {
       updateMovie,
     },

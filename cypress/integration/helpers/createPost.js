@@ -1,4 +1,4 @@
-export const createPost = (cy) => {
+export const createPost = (cy, isFav = false) => {
   cy.visit('/movies/create');
   cy.screenshot();
 
@@ -13,6 +13,10 @@ export const createPost = (cy) => {
   cy.get('input[name=year]').type('Test year');
 
   cy.get('input[name=director]').type('Test director');
+
+  if (isFav) {
+    cy.get('input[name=director]').click();
+  }
 
   cy.get('button').click();
 };

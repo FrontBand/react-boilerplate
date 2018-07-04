@@ -10,7 +10,7 @@ const Button = ({ block, color, to, ...rest }) => (
   React.createElement(
     to ? Link : 'button',
     {
-      className: classnames(styles.root, block && styles.isBlock, styles[color]),
+      className: classnames(styles.root, block && styles.isBlock, color && styles[`color-${color}`]),
       to,
       ...rest,
     }

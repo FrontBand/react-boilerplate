@@ -33,8 +33,12 @@ const MoviesDetailsPage = ({
           <Link to="/movies">{t('Back to the list of movies')}</Link>
         </p>
         <br />
-        <Button color="green" onClick={onEditMovieHandler}>{t('Edit movie')}</Button>
-        <Button color="red" onClick={onDeleteMovieHandler}>{t('Delete movie')}</Button>
+        <Button color="green" onClick={onEditMovieHandler}>
+          {t('Edit movie')}
+        </Button>
+        <Button color="red" onClick={onDeleteMovieHandler}>
+          {t('Delete movie')}
+        </Button>
       </div>
     </div>
   </div>
@@ -57,15 +61,19 @@ export default compose(
       movie: getMovie(state, ownProps.movieId),
     }),
     {
-      deleteMovie,
+      deleteMovieAction: deleteMovie,
     },
   ),
   withHandlers({
     onEditMovieHandler: ({ router, movieId }) => () => {
       router.push(`/movies/${movieId}/edit`);
     },
-    onDeleteMovieHandler: ({ deleteMovie, router, params }) => async () => {
-      await deleteMovie(params.id);
+    onDeleteMovieHandler: ({
+      deleteMovieAction,
+      router,
+      params,
+    }) => async () => {
+      await deleteMovieAction(params.id);
       router.push('/movies');
     },
   }),
