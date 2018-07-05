@@ -25,7 +25,7 @@ describe('Should successfully edit movie', () => {
   });
   it('should enter edit movie page', () => {
     cy.get(
-      '.item__app-common-containers-pages-MoviesListPage-styles__1cJgl:last',
+      '[data-cy="movieCard"]:last',
     ).click();
     cy.get('button:first').click();
     cy.screenshot();

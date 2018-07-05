@@ -28,7 +28,7 @@ const MoviesListPage = ({
     />
     <div className={styles.list}>
       {(isFavorite ? movies.filter(x => x.isFavorite) : movies).map(movie => (
-        <div className={styles.item} key={movie.id}>
+        <div data-cy="movieCard" className={styles.item} key={movie.id}>
           <MovieCard
             movie={movie}
             onClick={() => onMovieCardClick(movie)}
@@ -55,7 +55,7 @@ export default compose(
   connect((state, ownProps) => ({
     movies: getMovies(state, ownProps.moviesIds || []),
   })),
-  // var handler defaultValue
+  // var/handler/defaultValue
   withState('isFavorite', 'setIsFavorite', false),
   withHandlers({
     onMovieCardClick: ({ router }) => (movie) => {

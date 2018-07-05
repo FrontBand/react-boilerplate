@@ -2,6 +2,8 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import withStyles from 'withStyles';
 import { compose } from 'recompose';
+
+import Icon from '@/components/Icon';
 import styles from './styles.scss';
 
 const Poster = ({ isFavorite, src, title }) => (
@@ -12,7 +14,11 @@ const Poster = ({ isFavorite, src, title }) => (
       alt={title}
       data-cy="poster"
     >
-      {isFavorite && <span data-cy="favorite" className={styles.isFavorite} />}
+      {isFavorite && (
+        <span data-cy="favorite" className={styles.isFavorite}>
+          <Icon name="favorite" />
+        </span>
+      )}
     </div>
   </React.Fragment>
 );

@@ -44,9 +44,40 @@ let movies = [
   },
 ];
 
+// eslint-disable-next-line
+let actors = [
+  {
+    id: uuid(),
+    name: 'Patrick West',
+    year: 1994,
+    photo: 'https://randomuser.me/api/portraits/men/95.jpg',
+    movies: ['one', 'two'],
+  },
+  {
+    id: uuid(),
+    name: 'Chloe Holmes',
+    year: 1988,
+    photo: 'https://randomuser.me/api/portraits/women/26.jpg',
+    movies: ['one', 'two', 'three'],
+  },
+  {
+    id: uuid(),
+    name: 'Miguel Adams',
+    year: 1980,
+    photo: 'https://randomuser.me/api/portraits/men/26.jpg',
+    movies: ['one', 'three'],
+  },
+];
+
 router.get('/movies', (req, res) => {
   res.json({
     data: movies,
+  });
+});
+
+router.get('/actors', (req, res) => {
+  res.json({
+    data: actors,
   });
 });
 

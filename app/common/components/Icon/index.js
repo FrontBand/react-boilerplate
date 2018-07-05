@@ -16,6 +16,7 @@ export const icons = [
   'eye',
   'arrows-expand',
   'arrows-reduce',
+  'favorite',
 ];
 
 const Icon = ({ name }) => React.createElement('i', {

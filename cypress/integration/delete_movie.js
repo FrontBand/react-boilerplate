@@ -26,9 +26,7 @@ describe('Should delete movie', () => {
   });
   it('should delete movie', () => {
     cy.visit('/movies');
-    cy.get(
-      '.item__app-common-containers-pages-MoviesListPage-styles__1cJgl:last',
-    ).click();
+    cy.get('[data-cy="movieCard"]:last').click();
     cy.screenshot();
     cy.get('button:last').click();
   });
