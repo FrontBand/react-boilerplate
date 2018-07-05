@@ -8,16 +8,41 @@
   max-width: 128px;
   margin: 1rem 0;
   display: flex;
-  justify-content: center;
   align-items: center;
 }
 
 .input {
   -webkit-appearance: checkbox;
-  transition: 0.35s ease;
-  cursor: pointer;
+  display: none;
 }
 
 label {
-  margin-right: 0.5rem;
+  cursor: pointer;
+}
+
+.checkbox {
+  position: relative;
+}
+
+.checkbox::after {
+  width: 20px;
+  height: 20px;
+  position: absolute;
+  content: '';
+  border: 2px solid #ccc;
+  left: 110%;
+  top: -2px;
+  border-radius: 3px;
+  transition: 0.2s;
+}
+
+.input:checked + .checkbox::after {
+  border-style: solid;
+  border-width: 2px 2px 2px 2px;
+  border-color: transparent #6980fe #6980fe transparent;
+  transform: rotate(40deg);
+  transform-origin: 100% 100%;
+  width: 14px;
+  height: 22px;
+  top: -4px;
 }

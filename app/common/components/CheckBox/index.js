@@ -3,16 +3,17 @@ import PropTypes from 'prop-types';
 import classnames from 'classnames';
 import withStyles from 'withStyles';
 import { compose } from 'recompose';
+
 import styles from './styles.scss';
 
-const Input = ({ label, error, ...rest }) => (
+const Input = ({ label = 'Favorite', error, ...rest }) => (
   <label className={styles.root}>
-    {label && <span>{label}</span>}
     <input
       type="checkbox"
       className={classnames(styles.input, error && styles.isError)}
       {...rest}
     />
+    {label && <span className={styles.checkbox}>{label}</span>}
   </label>
 );
 

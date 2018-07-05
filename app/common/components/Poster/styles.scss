@@ -3,4 +3,15 @@
   background-position: top center;
   width: 300px;
   height: 400px;
+  position: relative;
+}
+
+.isFavorite {
+  position: absolute;
+  right: 5px;
+  top: 0;
+  width: 40px;
+  height: 50px;
+  background-size: cover;
+  background-image: url('https://cdn3.iconfinder.com/data/icons/flat-actions-icons-9/792/Star_Gold_Dark-512.png');
 }

@@ -38,7 +38,7 @@ const MovieForm = ({ buttonText, handleSubmit, t }) => (
     <FormRow label={t('Director')}>
       <Field component={FormField} inputComponent={TextInput} name="director" />
     </FormRow>
-    <FormRow label={t('Is Favorite')}>
+    <FormRow>
       <Field component={FormField} inputComponent={CheckBox} name="isFavorite" />
     </FormRow>
     <FormRow>

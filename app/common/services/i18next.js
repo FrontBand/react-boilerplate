@@ -19,7 +19,7 @@ service.use(new LanguageDetector(null, {
 service.init({
   nsSeparator: false,
   keySeparator: false,
-  fallbackLng: 'de',
+  fallbackLng: 'ru',
   whitelist: ['uk', 'ru', 'en', 'de'],
   resources: {
     uk: {
