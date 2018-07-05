@@ -1,4 +1,4 @@
-@import "variables.scss";
+@import 'variables.scss';
 
 .root {
   padding: 8px 12px;
@@ -14,4 +14,12 @@
 .isBlock {
   width: 100%;
   display: block;
+}
+
+.color-red {
+  background-color: $red;
+}
+
+.color-green {
+  background-color: $green;
 }
