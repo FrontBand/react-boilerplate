@@ -1,7 +1,6 @@
-describe('Should delete movie', () => {
-  it('Creating a favorite Movie', () => {
+describe('Create a new post test', () => {
+  it('Successfully creating movie', () => {
     cy.visit('/movies/create');
-    cy.screenshot();
 
     cy.get('input[name=title]').type('Test title');
 
@@ -11,25 +10,15 @@ describe('Should delete movie', () => {
 
     cy.get('textarea[name=description]').type('Test description');
 
-    cy.get('input[name=year]').type('Test year');
+    cy.get('input[name=year]').type('2007');
 
     cy.get('input[name=director]').type('Test director');
 
     cy.get('label').click();
 
     cy.get('button').click();
-  });
+    cy.screenshot();
 
-  it('should display list', () => {
-    cy.visit('/movies');
-    cy.screenshot();
-  });
-  it('should delete movie', () => {
-    cy.visit('/movies');
-    cy.get(
-      '.item__app-common-containers-pages-MoviesListPage-styles__1cJgl:last',
-    ).click();
-    cy.screenshot();
-    cy.get('button:last').click();
+    cy.get('[data-cy="poster"]:last').children('[data-cy="favorite"]');
   });
 });

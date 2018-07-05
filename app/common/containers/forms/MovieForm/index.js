@@ -65,6 +65,7 @@ export default compose(
         required: true,
       },
       year: {
+        minLength: 4,
         required: true,
       },
       director: {

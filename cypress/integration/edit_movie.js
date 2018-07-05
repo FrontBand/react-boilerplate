@@ -15,7 +15,7 @@ describe('Should successfully edit movie', () => {
 
     cy.get('input[name=director]').type('Test director');
 
-    cy.get('input[name=isFavorite]').click();
+    cy.get('label').click();
 
     cy.get('button').click();
   });
@@ -51,7 +51,7 @@ describe('Should successfully edit movie', () => {
       .clear()
       .type('Another Test director');
 
-    cy.get('input[name=isFavorite]').click();
+    cy.get('label').click();
 
     cy.get('button').click();
   });

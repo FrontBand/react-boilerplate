@@ -10,8 +10,9 @@ const Poster = ({ isFavorite, src, title }) => (
       className={styles.root}
       style={{ backgroundImage: `url(${src})` }}
       alt={title}
+      data-cy="poster"
     >
-      {isFavorite && <span className={styles.isFavorite} />}
+      {isFavorite && <span data-cy="favorite" className={styles.isFavorite} />}
     </div>
   </React.Fragment>
 );

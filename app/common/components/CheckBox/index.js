@@ -7,7 +7,7 @@ import { compose } from 'recompose';
 import styles from './styles.scss';
 
 const Input = ({ label = 'Favorite', error, ...rest }) => (
-  <label className={styles.root}>
+  <label data-attr="checkbox" className={styles.root}>
     <input
       type="checkbox"
       className={classnames(styles.input, error && styles.isError)}
