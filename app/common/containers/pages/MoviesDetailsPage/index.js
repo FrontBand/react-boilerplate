@@ -33,6 +33,10 @@ const MoviesDetailsPage = ({
         <p>{movie.year}</p>
         <p>{movie.description}</p>
         <p>{movie.director}</p>
+        <h1 className={styles.actorsList}>{t('Actors list')}</h1>
+        <ul>
+          {movie.actors.map((actor, idx) => <li key={idx}>{actor}</li>)}
+        </ul>
         <p>
           <Link to="/movies">{t('Back to the list of movies')}</Link>
         </p>

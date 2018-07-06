@@ -1,3 +1,40 @@
 .root {
-  padding: 1px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+}
+
+.poster {
+  flex: 0 0 auto;
+}
+
+.content {
+  flex: 1 1 auto;
+  padding: 20px;
+  max-width: 450px;
+}
+
+.poster + .content {
+  margin-left: 20px;
+}
+
+.title {
+  font-size: 25px;
+  font-weight: bold;
+}
+
+.info {
+  p,
+  ul {
+    margin-top: 10px;
+  }
+}
+
+.title + .info {
+  margin-top: 30px;
+}
+
+.actorsList {
+  list-style: 1;
+  margin: 1rem 0;
 }

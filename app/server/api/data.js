@@ -12,6 +12,7 @@ export const movies = [
     director: 'Frank Darabont',
     genres: ['Crime', 'Drama'],
     isFavorite: false,
+    actors: ['John Doe'],
   },
   {
     id: uuid(),
@@ -23,7 +24,8 @@ export const movies = [
       'The aging patriarch of an organized crime dynasty transfers control of his clandestine empire to his reluctant son.',
     director: 'Francis Ford Coppola',
     genres: ['Crime', 'Drama'],
-    isFavorite: true,
+    isFavorite: false,
+    actors: ['Jane Doe'],
   },
   {
     id: uuid(),
@@ -35,11 +37,51 @@ export const movies = [
       'When the menace known as the Joker emerges from his mysterious past, he wreaks havoc and chaos on the people of Gotham, the Dark Knight must accept one of the greatest psychological and physical tests of his ability to fight injustice.',
     director: 'Christopher Nolan',
     genres: ['Action', 'Crime', 'Drama'],
-    isFavorite: false,
+    isFavorite: true,
+    actors: [
+      'Christian Bale',
+      'Michael Caine',
+      'Heath Ledger',
+      'Gary Oldman',
+      'Aaron Eckhart',
+      'Maggie Gyllenhaal',
+      'Morgan Freeman',
+    ],
+  },
+  {
+    id: uuid(),
+    title: 'The Dark Knight rises',
+    year: 2012,
+    poster:
+      'https://upload.wikimedia.org/wikipedia/en/8/83/Dark_knight_rises_poster.jpg',
+    description:
+      'When the menace known as the Joker emerges from his mysterious past, he wreaks havoc and chaos on the people of Gotham, the Dark Knight must accept one of the greatest psychological and physical tests of his ability to fight injustice.',
+    director: 'Christopher Nolan',
+    genres: ['Action', 'Crime', 'Drama'],
+    isFavorite: true,
+    actors: [
+      'Christian Bale',
+      'Michael Caine',
+      'Gary Oldman',
+      'Anne Hathaway',
+      'Tom Hardy',
+      'Marion Cotillard',
+      'Joseph Gordon-Levitt',
+      'Morgan Freeman',
+    ],
   },
 ];
 
 export const actors = [
+  {
+    id: uuid(),
+    name: 'Crtistian Bale',
+    year: 1974,
+    photo:
+      'https://upload.wikimedia.org/wikipedia/commons/thumb/7/73/Christian_Bale_2014_%28cropped%29.jpg/220px-Christian_Bale_2014_%28cropped%29.jpg',
+    movies: ['The Dark Knight', 'The Dark Knight rises'],
+    isFavorite: true,
+  },
   {
     id: uuid(),
     name: 'Patrick West',
@@ -50,7 +92,7 @@ export const actors = [
   },
   {
     id: uuid(),
-    name: 'Chloe Holmes',
+    name: 'Jane Doe',
     year: 1988,
     photo: 'https://randomuser.me/api/portraits/women/26.jpg',
     movies: ['one', 'two', 'three'],
@@ -58,7 +100,7 @@ export const actors = [
   },
   {
     id: uuid(),
-    name: 'Miguel Adams',
+    name: 'John Doe',
     year: 1980,
     photo: 'https://randomuser.me/api/portraits/men/26.jpg',
     movies: ['one', 'three'],
