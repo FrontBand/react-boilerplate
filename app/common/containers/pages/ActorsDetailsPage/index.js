@@ -2,7 +2,7 @@ import React from 'react';
 import { compose, withHandlers } from 'recompose';
 import { connect } from 'react-redux';
 import { provideHooks } from 'redial';
-import { withRouter, Link } from 'react-router';
+import { withRouter } from 'react-router';
 import { translate } from 'react-i18next';
 import { fetchActor, deleteActor } from '@/redux/data/actors';
 import { getActor } from '@/redux';
@@ -34,12 +34,7 @@ const ActorsDetailsPage = ({
         <p>{actor.description}</p>
         <p>{actor.director}</p>
         <h1 className={styles.actorsList}>{t('Actor movies list')}</h1>
-        <ul>
-          {actor.movies.map((movie, idx) => <li key={idx}>{movie}</li>)}
-        </ul>
-        <p>
-          <Link to="/actors">{t('Back to the list of actors')}</Link>
-        </p>
+        <p>{actor.movies}</p>
         <br />
         <Button color="green" onClick={onEditActorHandler}>
           {t('Edit actor')}
