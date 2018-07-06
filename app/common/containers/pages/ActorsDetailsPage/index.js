@@ -59,7 +59,6 @@ export default compose(
   provideHooks({
     fetch: ({ dispatch, params, setProps }) =>
       dispatch(fetchActor(params.id)).then((response) => {
-        console.log(response);
         setProps({
           actorId: response.payload.result,
         });
@@ -70,7 +69,7 @@ export default compose(
       actor: getActor(state, ownProps.actorId),
     }),
     {
-      deleteMovieAction: deleteActor,
+      deleteActorAction: deleteActor,
     },
   ),
   withHandlers({
