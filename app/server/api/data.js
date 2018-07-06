@@ -12,7 +12,7 @@ export const movies = [
     director: 'Frank Darabont',
     genres: ['Crime', 'Drama'],
     isFavorite: false,
-    actors: ['John Doe'],
+    actors: ['John Doe', 'Cris Evans'],
   },
   {
     id: uuid(),

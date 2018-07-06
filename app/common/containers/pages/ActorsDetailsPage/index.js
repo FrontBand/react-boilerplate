@@ -16,7 +16,6 @@ import styles from './styles.scss';
 const ActorsDetailsPage = ({
   actor = {},
   t,
-  onEditActorHandler,
   onDeleteActorHandler,
 }) => (
   <div className={styles.root}>
@@ -36,9 +35,6 @@ const ActorsDetailsPage = ({
         <h1 className={styles.actorsList}>{t('Actor movies list')}</h1>
         <p>{actor.movies}</p>
         <br />
-        <Button color="green" onClick={onEditActorHandler}>
-          {t('Edit actor')}
-        </Button>
         <Button color="red" onClick={onDeleteActorHandler}>
           {t('Delete actor')}
         </Button>
@@ -68,9 +64,6 @@ export default compose(
     },
   ),
   withHandlers({
-    onEditActorHandler: ({ router, actorId }) => () => {
-      router.push(`/actors/${actorId}/edit`);
-    },
     onDeleteActorHandler: ({
       deleteActorAction,
       router,
