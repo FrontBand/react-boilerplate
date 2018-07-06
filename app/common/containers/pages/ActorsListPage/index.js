@@ -1,35 +1,35 @@
 import React from 'react';
-import { compose /* ,  withHandlers  */ } from 'recompose';
+import { compose, withHandlers } from 'recompose';
 import { connect } from 'react-redux';
-import { withRouter } from 'react-router';
 import { provideHooks } from 'redial';
 import { translate } from 'react-i18next';
 import { getActors } from '@/redux';
 import { fetchActors } from '@/redux/data/actors';
+import ActorCard from '@/containers/blocks/ActorCard';
+import Button from '@/components/Button';
 
 import withStyles from 'withStyles';
 import styles from './styles.scss';
 
-const ActorsListPage = ({ actors }) => (
+const ActorsListPage = ({ actors, t, onActorCardClick }) => (
   <div className={styles.root}>
-    <h1>Actors List</h1>
-    {actors &&
-      actors.map(a => (
-        <div key={a.id}>
-          <div>{a.name}</div>
-          <div>
-            <img src={a.photo} alt={a.name} />
-          </div>
-          <div>{a.id}</div>
+    <h1 className={styles.head}>{t('Actors list')}</h1>
+    <div className={styles.list}>
+      {actors.map(actor => (
+        <div data-cy="actorCard" className={styles.item} key={actor.id}>
+          <ActorCard actor={actor} onClick={() => onActorCardClick(actor)} />
         </div>
       ))}
+    </div>
+    <div className={styles.action}>
+      <Button to="/actors/create">{t('Add new actor')}</Button>
+    </div>
   </div>
 );
 
 export default compose(
   withStyles(styles),
   translate(),
-  withRouter,
   provideHooks({
     fetch: ({ dispatch, setProps }) =>
       dispatch(fetchActors()).then((response) => {
@@ -39,5 +39,12 @@ export default compose(
   connect((state, ownProps) => ({
     actors: getActors(state, ownProps.actorsId),
   })),
-  // withHandlers({}),
+  withHandlers({
+    onActorCardClick: ({ router }) => (actor) => {
+      router.push(`/actors/${actor.id}`);
+    },
+    // onFilterHandler: ({ isFavorite, setIsFavorite }) => () => {
+    //   setIsFavorite(!isFavorite);
+    // },
+  }),
 )(ActorsListPage);

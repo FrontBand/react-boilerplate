@@ -2,7 +2,7 @@ import React from 'react';
 import withStyles from 'withStyles';
 import { compose } from 'recompose';
 import uuid from 'uuid/v4';
-import NavBar from '@/components/NavBar';
+import NavBar from '@/containers/blocks/NavBar';
 
 import styles from './styles.scss';
 

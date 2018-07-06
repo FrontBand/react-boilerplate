@@ -10,6 +10,7 @@ import MoviesCreatePage from '@/containers/pages/MoviesCreatePage';
 import MoviesEditPage from '@/containers/pages/MoviesEditPage';
 
 import ActorsListPage from '@/containers/pages/ActorsListPage';
+import ActorsDetailsPage from '@/containers/pages/ActorsDetailsPage';
 
 import NotFoundPage from '@/containers/pages/NotFoundPage';
 
@@ -24,6 +25,7 @@ export const configureRoutes = ({ store }) => ( // eslint-disable-line
         <Route path="movies/:id" component={MoviesDetailsPage} />
         <Route path="movies/:id/edit" component={MoviesEditPage} />
         <Route path="actors" component={ActorsListPage} />
+        <Route path="actors/:id" component={ActorsDetailsPage} />
         <IndexRedirect to="movies" />
         <Route path="*" component={NotFoundPage} status={404} />
       </Route>

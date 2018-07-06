@@ -17,6 +17,9 @@ describe('Create a new post test', () => {
     cy.get('label').click();
 
     cy.get('button').click();
+
+    cy.visit('/movies');
+
     cy.screenshot();
 
     cy.get('[data-cy="poster"]:last').children('[data-cy="favorite"]');
