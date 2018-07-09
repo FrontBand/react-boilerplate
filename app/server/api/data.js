@@ -68,16 +68,4 @@ export const movies = [
     actors: ['333'],
     isFavorite: true,
   },
-  // {
-  //   id: uuid(),
-  //   title: 'The Dark Knight rises',
-  //   year: 2012,
-  //   poster:
-  //     'https://upload.wikimedia.org/wikipedia/en/8/83/Dark_knight_rises_poster.jpg',
-  //   description:
-  //     'When the menace known as the Joker emerges from his mysterious past, he wreaks havoc and chaos on the people of Gotham, the Dark Knight must accept one of the greatest psychological and physical tests of his ability to fight injustice.',
-  //   director: 'Christopher Nolan',
-  //   genres: ['Action', 'Crime', 'Drama'],
-  //   isFavorite: true,
-  // },
 ];
