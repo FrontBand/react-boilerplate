@@ -3,4 +3,13 @@
   background-position: top center;
   width: 300px;
   height: 400px;
+  position: relative;
+}
+
+.isFavorite {
+  position: absolute;
+  right: 10px;
+  top: 0;
+  font-size: 50px;
+  color: orangered;
 }

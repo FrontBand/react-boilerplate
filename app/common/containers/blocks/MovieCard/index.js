@@ -8,12 +8,10 @@ import styles from './styles.scss';
 const MovieCard = ({ movie, ...rest }) => (
   <div className={styles.root} {...rest}>
     <div className={styles.poster}>
-      <Poster src={movie.poster} title={movie.title} />
+      <Poster isFavorite={movie.isFavorite} src={movie.poster} title={movie.title} />
     </div>
     <div className={styles.content}>
-      <div className={styles.title}>
-        { movie.title }
-      </div>
+      <div className={styles.title}>{movie.title}</div>
     </div>
   </div>
 );
@@ -22,6 +20,4 @@ MovieCard.propTypes = {
   children: PropTypes.node,
 };
 
-export default compose(
-  withStyles(styles)
-)(MovieCard);
+export default compose(withStyles(styles))(MovieCard);

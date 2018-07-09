@@ -12,7 +12,7 @@ export const fetchMovies = options => invoke({
     'content-type': 'application/json',
   },
   types: ['movies/FETCH_LIST_REQUEST', {
-    type: 'movies/FETCH_LIST_SUCCESS',
+    type: 'actors',
     payload: (action, state, res) => res.json().then(
       json => normalize(json.data, [movie])
     ),
@@ -78,7 +78,7 @@ export const deleteMovie = (movieId, options) => invoke({
 
 export default handleAction(
   combineActions(
-    'movies/FETCH_LIST_SUCCESS',
+    'actors',
     'movies/FETCH_DETAILS_SUCCESS',
     'movies/CREATE_SUCCESS',
     'movies/UPDATE_SUCCESS'

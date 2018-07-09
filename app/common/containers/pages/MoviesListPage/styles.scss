@@ -1,4 +1,3 @@
-
 .root {
   overflow: hidden;
 }
@@ -18,4 +17,13 @@
 
 .action {
   margin-top: 20px;
+}
+
+.favorite {
+  display: flex;
+  align-items: center;
+}
+
+.favorite p {
+  padding: 1rem;
 }

@@ -1,0 +1,34 @@
+.root {
+  overflow: hidden;
+}
+
+.list {
+  margin-top: -16px;
+  margin-left: -16px;
+}
+
+.item {
+  margin-left: 16px;
+  margin-top: 16px;
+  display: inline-block;
+  vertical-align: top;
+  width: 300px;
+}
+
+.action {
+  margin-top: 20px;
+}
+
+.favorite {
+  display: flex;
+  align-items: center;
+}
+
+.favorite p {
+  padding: 1rem;
+}
+
+.head {
+  line-height: 1;
+  margin-top: 2rem;
+}

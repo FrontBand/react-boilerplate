@@ -1,0 +1,30 @@
+@import 'variables.scss';
+
+.root {
+  box-shadow: 0 2px 4px 1px rgba(0, 0, 0, 0.3);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.root a {
+  padding: 12px 18px;
+  border-radius: 6px;
+  background-color: $blue;
+  color: white;
+  min-width: 120px;
+  cursor: pointer;
+  display: inline-block;
+  text-decoration: none;
+  text-align: center;
+  transition: 0.3s ease;
+}
+
+.active {
+  border-bottom: 2px solid $blue;
+}
+
+.root a:hover {
+  background-color: rgb(221, 221, 221);
+}
