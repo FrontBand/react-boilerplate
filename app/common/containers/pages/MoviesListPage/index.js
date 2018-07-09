@@ -29,10 +29,7 @@ const MoviesListPage = ({
     <div className={styles.list}>
       {(isFavorite ? movies.filter(x => x.isFavorite) : movies).map(movie => (
         <div data-cy="movieCard" className={styles.item} key={movie.id}>
-          <MovieCard
-            movie={movie}
-            onClick={() => onMovieCardClick(movie)}
-          />
+          <MovieCard movie={movie} onClick={() => onMovieCardClick(movie)} />
         </div>
       ))}
     </div>

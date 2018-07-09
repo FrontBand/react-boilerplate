@@ -1,7 +1,6 @@
 import React from 'react';
 import { compose, withHandlers, withState } from 'recompose';
 import { connect } from 'react-redux';
-// import { withRouter } from 'react-router';
 import { provideHooks } from 'redial';
 import { translate } from 'react-i18next';
 import { getActors } from '@/redux';
@@ -44,7 +43,6 @@ const ActorsListPage = ({
 export default compose(
   withStyles(styles),
   translate(),
-  // withRouter,
   provideHooks({
     fetch: ({ dispatch, setProps }) =>
       dispatch(fetchActors()).then((response) => {

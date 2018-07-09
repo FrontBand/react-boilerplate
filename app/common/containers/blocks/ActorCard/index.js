@@ -8,7 +8,7 @@ import styles from './styles.scss';
 const ActorCard = ({ actor, ...rest }) => (
   <div className={styles.root} {...rest}>
     <div className={styles.poster}>
-      <Poster src={actor.photo} title={actor.name} />
+      <Poster isFavorite={actor.isFavorite} src={actor.photo} title={actor.name} />
     </div>
     <div className={styles.content}>
       <div className={styles.title}>{actor.name}</div>

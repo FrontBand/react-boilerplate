@@ -5,7 +5,8 @@ import { withRouter, Link } from 'react-router';
 import { provideHooks } from 'redial';
 import { translate } from 'react-i18next';
 import { fetchMovie, deleteMovie } from '@/redux/data/movies';
-import { getMovie } from '@/redux';
+import { fetchActors } from '@/redux/data/actors';
+import { getMovie, getAllActors } from '@/redux';
 
 import Poster from '@/components/Poster';
 import Button from '@/components/Button';
@@ -15,6 +16,7 @@ import styles from './styles.scss';
 
 const MoviesDetailsPage = ({
   movie = {},
+  actors = [],
   t,
   onEditMovieHandler,
   onDeleteMovieHandler,
@@ -34,6 +36,12 @@ const MoviesDetailsPage = ({
         <p>{movie.description}</p>
         <p>{movie.director}</p>
         <h1 className={styles.actorsList}>{t('Actors list')}</h1>
+        <ul>
+          {actors
+            .filter(x => movie.actors.includes(x.id))
+            .map((actor, idx) => <li key={idx}>{actor.name}</li>)}
+        </ul>
+        <hr />
         <p>
           <Link to="/movies">{t('Back to the list of movies')}</Link>
         </p>
@@ -55,15 +63,24 @@ export default compose(
   withRouter,
   provideHooks({
     fetch: ({ dispatch, params, setProps }) =>
-      dispatch(fetchMovie(params.id)).then((response) => {
-        setProps({
-          movieId: response.payload.result,
-        });
-      }),
+      dispatch(fetchMovie(params.id))
+        .then((res) => {
+          setProps({
+            movieId: res.payload.result,
+          });
+        })
+        .then(() => {
+          dispatch(fetchActors()).then((res) => {
+            setProps({
+              actorsIds: res.payload.result,
+            });
+          });
+        }),
   }),
   connect(
     (state, ownProps) => ({
       movie: getMovie(state, ownProps.movieId),
+      actors: getAllActors(state),
     }),
     {
       deleteMovieAction: deleteMovie,
