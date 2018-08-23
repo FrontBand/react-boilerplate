@@ -30,7 +30,7 @@ const MoviesDetailsPage = ({ movie = {}, onMovieEditLink, onMovieDelete, t }) =>
         </p>
         <div className={styles.buttonsBlock}>
           <Button onClick={() => onMovieEditLink(movie)}>{t('Edit')}</Button>
-          <Button onClick={() => onMovieDelete(movie)} remove={styles.remove}>{t('Remove')}</Button>
+          <Button remove onClick={() => onMovieDelete(movie)}>{t('Remove')}</Button>
         </div>
       </div>
     </div>
@@ -50,13 +50,15 @@ export default compose(
   }),
   connect((state, ownProps) => ({
     movie: getMovie(state, ownProps.movieId),
-  }), deleteMovie),
+  }), {
+    deleteMovieAction: deleteMovie,
+  }),
   withHandlers({
     onMovieEditLink: ({ router }) => (movie) => {
       router.push(`/movies/${movie.id}/edit`);
     },
-    onMovieDelete: ({ router }) => async (movie) => {
-      await deleteMovie(movie.id);
+    onMovieDelete: ({ router, deleteMovieAction }) => async (movie) => {
+      await deleteMovieAction(movie.id);
       router.push('/movies');
     },
   })

@@ -48,12 +48,17 @@ export default compose(
       },
       poster: {
         required: true,
+        minLength: 10,
+        format: /(http|https):\/\/(\w+:{0,1}\w*)?(\S+)(:[0-9]+)?(\/|\/([\w#!:.?+=&%!]))?/,
       },
       description: {
         required: true,
       },
       year: {
         required: true,
+        length: 4,
+        min: 1800,
+        max: new Date().getFullYear(),
       },
       director: {
         required: true,
