@@ -4,17 +4,15 @@ import { updateMovie, fetchMovie } from '@/redux/data/movies';
 import MovieForm from '@/containers/forms/MovieForm';
 import { provideHooks } from 'redial';
 import { getMovie } from '@/redux';
+import { translate } from 'react-i18next';
 
 import { compose, withHandlers } from 'recompose';
 import { connect } from 'react-redux';
 
-const MoviesEditPage = ({ onSubmit, movie }) => (
+const MoviesEditPage = ({ onSubmit, movie, t }) => (
   <div>
     <div>
-      {/* {t('Create new movie')} */}
-    </div>
-    <div>
-      {/* <Link to="/movies">{t('Back to the list of movies')}</Link> */}
+      {t('Edit movie')}
     </div>
     <div>
       <MovieForm initialValues={movie} onSubmit={onSubmit} />
@@ -24,6 +22,7 @@ const MoviesEditPage = ({ onSubmit, movie }) => (
 
 export default compose(
   withRouter,
+  translate(),
   provideHooks({
     fetch: ({ dispatch, params, setProps }) => dispatch(fetchMovie(params.id)).then((response) => {
       setProps({
@@ -33,7 +32,9 @@ export default compose(
   }),
   connect((state, ownProps) => ({
     movie: getMovie(state, ownProps.movieId),
-  }), { updateMovie }),
+  }), {
+    updateMovieAction: updateMovie,
+  }),
   withHandlers({
     onSubmit: ({ updateMovie, movieId, router }) => async (formValues) => {
       await updateMovie(movieId, formValues);
