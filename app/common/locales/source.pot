@@ -5,10 +5,13 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1)\n"
-"POT-Creation-Date: 2018-04-26T12:08:55.361Z\n"
-"PO-Revision-Date: 2018-04-26T12:08:55.361Z\n"
+"POT-Creation-Date: 2018-08-23T14:47:03.951Z\n"
+"PO-Revision-Date: 2018-08-23T14:47:03.951Z\n"
 
 msgid "Required field"
+msgstr ""
+
+msgid "Min length is <%= params %>"
 msgstr ""
 
 msgid "Title"
@@ -33,6 +36,15 @@ msgid "Create new movie"
 msgstr ""
 
 msgid "Back to the list of movies"
+msgstr ""
+
+msgid "Edit"
+msgstr ""
+
+msgid "Remove"
+msgstr ""
+
+msgid "Edit movie"
 msgstr ""
 
 msgid "Add new movie"

@@ -2,14 +2,12 @@ import React from 'react';
 import { compose } from 'recompose';
 import { reduxForm, Field } from 'redux-form';
 import { translate } from 'react-i18next';
-
+import { reduxFormValidate } from 'react-nebo15-validate';
 import Form, { FormRow } from '@/components/Form';
 import FormField from '@/components/FormField';
 import TextInput from '@/components/TextInput';
 import TextareaInput from '@/components/TextareaInput';
 import Button from '@/components/Button';
-
-import { reduxFormValidate } from 'react-nebo15-validate';
 
 const MovieForm = ({ handleSubmit, t }) => (
   <Form onSubmit={handleSubmit}>
@@ -45,12 +43,17 @@ export default compose(
       },
       poster: {
         required: true,
+        minLength: 10,
+        format: /(http|https):\/\/(\w+:{0,1}\w*)?(\S+)(:[0-9]+)?(\/|\/([\w#!:.?+=&%!]))?/,
       },
       description: {
         required: true,
       },
       year: {
         required: true,
+        length: 4,
+        min: 1800,
+        max: new Date().getFullYear(),
       },
       director: {
         required: true,

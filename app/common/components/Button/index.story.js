@@ -9,4 +9,7 @@ storiesOf('components/Button', module)
   ))
   .add('Block', () => (
     <Button block>Block</Button>
+  ))
+  .add('Remove', () => (
+    <Button remove>Remove</Button>
   ));
