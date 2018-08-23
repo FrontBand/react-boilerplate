@@ -6,11 +6,11 @@ import withStyles from 'withStyles';
 import { compose } from 'recompose';
 import styles from './styles.scss';
 
-const Button = ({ block, to, ...rest }) => (
+const Button = ({ block, to, remove, ...rest }) => (
   React.createElement(
     to ? Link : 'button',
     {
-      className: classnames(styles.root, block && styles.isBlock),
+      className: classnames(styles.root, remove && styles.remove, block && styles.isBlock),
       to,
       ...rest,
     }
@@ -19,6 +19,7 @@ const Button = ({ block, to, ...rest }) => (
 
 Button.propTypes = {
   block: PropTypes.bool,
+  remove: PropTypes.bool,
 };
 
 export default compose(
