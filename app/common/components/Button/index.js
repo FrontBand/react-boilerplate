@@ -6,11 +6,13 @@ import withStyles from 'withStyles';
 import { compose } from 'recompose';
 import styles from './styles.scss';
 
-const Button = ({ block, to, ...rest }) => (
+const remove = remove ? 'remove' : '';
+
+const Button = ({ block, to, remove, ...rest }) => (
   React.createElement(
     to ? Link : 'button',
     {
-      className: classnames(styles.root, block && styles.isBlock),
+      className: classnames(styles.root, remove, block && styles.isBlock),
       to,
       ...rest,
     }

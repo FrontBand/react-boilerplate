@@ -2,14 +2,14 @@ import React from 'react';
 import { compose } from 'recompose';
 import { reduxForm, Field } from 'redux-form';
 import { translate } from 'react-i18next';
-
+import { connect } from 'react-redux';
+import { reduxFormValidate } from 'react-nebo15-validate';
+import { getMovie } from '@/redux';
 import Form, { FormRow } from '@/components/Form';
 import FormField from '@/components/FormField';
 import TextInput from '@/components/TextInput';
 import TextareaInput from '@/components/TextareaInput';
 import Button from '@/components/Button';
-
-import { reduxFormValidate } from 'react-nebo15-validate';
 
 const MovieForm = ({ handleSubmit, t }) => (
   <Form onSubmit={handleSubmit}>
@@ -36,6 +36,9 @@ const MovieForm = ({ handleSubmit, t }) => (
 
 export default compose(
   translate(),
+  connect((state, ownProps) => ({
+    movie: getMovie(state, ownProps.movieId),
+  })),
   reduxForm({
     form: 'movie-form',
     initialValues: {},
